@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+Aplicación de Gestión de Posts
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esta aplicación de tipo web ha sido desarrollada con React y consume la API REST de JSONPlaceholder. La aplicación permite:
 
-## Available Scripts
+Listar posts con paginación. Crear nuevos posts. Editar posts existentes. Eliminar posts. 
 
-In the project directory, you can run:
+Incluye SOLID principios, TDD y pruebas unitarias con Jest y React Testing Library
 
-### `npm start`
+Tecnologías utilizadas
+React: Framework o biblioteca principal para la construcción de la interfaz de usuario de la aplicación.
+React Router: Gestión de rutas y navegación.
+Material UI (MUI): Estilizado de componentes y diseño responsivo.
+JSONPlaceholder API: Proveedor de datos para los posts.
+Jest y React Testing Library: Herramientas para pruebas unitarias.
+Requisitos
+Asegúrate de tener previamente instalado lo siguiente:
+Node.js (v14 o superior).
+npm o yarn.
+Instalación
+Clona este repositorio localmente. 
+bash
+Copy code
+git clone https://github.com/varjjc/POSTS
+cd tu-repositorio
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Instala las dependencias: 
+bash
+Copy code
+npm install
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Inicia el servidor de desarrollo: 
+bash
+Copy code
+npm start
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+La aplicación estará disponible en http://localhost:3000. Uso
+Navegación
+Página Principal (/): Muestra lista de posts paginados y permite eliminar posts con su correspondiente botón de eliminar.
+Nuevo Post (/new): Posibilita crear nuevos posts generando vista previa del contenido antes de guardar.
+Editar Post (/edit/:id): Posibilita editar los posts existentes generando vista previa del contenido antes de guardar.
+Funciones
+Paginación: La lista de posts está paginada para facilitar la navegación.
+Eliminar: Persisten los posts junto a su botón de eliminar.
+Crear - Editar: Formulario para crear un nuevo post - formulario para editar un post existente, manteniendo validaciones básicas sobre título y contenido, además de una vista previa del contenido antes de su respectivo proceso de creación/ edición/ eliminación.
+Estructura del proyecto
+bash
+Copy code
+src/
+├── components/
+│ ├── postForm.jsx          # Componente que puede ser reutilizado para formularios de posts.
+│ ├── postTable.jsx         # Tabla para listar posts, incluyendo su botón de eliminar.
+│ ├── modalNotification.jsx  
+├── pages/
+│ ├── homePage.jsx          # Página principal que lista los posts.
+│ ├── newPostPage.jsx       # Página para crear un nuevo post.
+│ ├── editPostPage.jsx      # Página para editar un post existente.
+├── services/
+│ ├── apiClient.js 
+│ ├── postService.js        # Lógica para interactuar con la API REST.
+├── tests/
+├── App.js                    # Configuraciones de rutas principales.
