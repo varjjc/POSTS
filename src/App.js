@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HomePage } from './pages/homePage';
+import { NewPostPage } from './pages/newPostPage';
+import { EditPostPage } from './pages/editPostPage';
+import { CssBaseline, AppBar, Toolbar, Typography, Container } from '@mui/material';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <CssBaseline />
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" component="div">
+            Gestión de Posts
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Container sx={{ marginTop: 4 }}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/new" element={<NewPostPage />} />
+          <Route path="/edit/:id" element={<EditPostPage />} />
+          <Route path="*" element={<h1>Error 404: Página no encontrada</h1>} />
+        </Routes>
+      </Container>
+    </Router>
   );
-}
+};
 
 export default App;
